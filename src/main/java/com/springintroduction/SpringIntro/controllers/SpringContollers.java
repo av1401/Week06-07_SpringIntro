@@ -1,9 +1,6 @@
 package com.springintroduction.SpringIntro.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SpringContollers {
@@ -18,7 +15,7 @@ public class SpringContollers {
         return "Hello " + name + " from BridgeLabz";
     }
 
-    //using  pathvariable
+    //using  path variable
 
     @GetMapping("/hello/param/{name}")
     //http://localhost:8080/hello/param/Mark
@@ -26,5 +23,12 @@ public class SpringContollers {
         return "Hello " + name + " from BridgeLabz";
     }
 
+    //post mapping
+
+    @PostMapping("/post")
+    //test with postman: http://localhost:8080/hello/post
+    public String sayHello3(@RequestBody UserDTO user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
     
 }
