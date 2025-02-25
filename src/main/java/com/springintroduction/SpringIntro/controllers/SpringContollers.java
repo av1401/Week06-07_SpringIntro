@@ -30,5 +30,12 @@ public class SpringContollers {
     public String sayHello3(@RequestBody UserDTO user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
+
+    //put mapping
+    @PutMapping("/put/{firstName}")
+    //test using postman: http://localhost:8080/hello/put/Pathak?lastName=ji
+    public String sayHello4(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
     
 }
